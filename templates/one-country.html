@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+{% include 'menu.html' %}
+<h2>{{ country.country }}</h2>
+<h4>Список используемых языков:</h4>
+<ul>
+    {% for char in country.languages %}
+        <li>{{ char }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
