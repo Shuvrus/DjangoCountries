@@ -32,3 +32,4 @@ def languages_list(request):
     lang = sorted(lang)
     context = {'languages': lang}
     return render(request, 'languages.html', context)
+
