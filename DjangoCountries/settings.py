@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'MainApp',
     'django_extensions',
-    'django.core.wsgi',
-    'MainApp.models.Languages',
 ]
 
 MIDDLEWARE = [
