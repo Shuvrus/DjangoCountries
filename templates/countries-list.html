@@ -1,16 +1,10 @@
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-{% include 'menu.html' %}
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>Список стран:</h2>
 <ol>
     {% for char in countries %}
         <li><a href='/countries-list/{{ char.name }}'>{{ char.name }}</a></li>
     {% endfor %}
 </ol>
-</body>
-</html>
+{% endblock %}

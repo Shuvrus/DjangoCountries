@@ -1,11 +1,6 @@
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-{% include 'menu.html' %}
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>{{ country.name }}</h2>
 <h4>Список используемых языков:</h4>
 <ul>
@@ -13,5 +8,4 @@
         <li>{{ char }}</li>
     {% endfor %}
 </ul>
-</body>
-</html>
+{% endblock %}
