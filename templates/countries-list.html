@@ -9,7 +9,7 @@
 <h2>Список стран:</h2>
 <ol>
     {% for char in countries %}
-        <li><a href='/countries-list/{{ char.country }}'>{{ char.country }}</a></li>
+        <li><a href='/countries-list/{{ char.name }}'>{{ char.name }}</a></li>
     {% endfor %}
 </ol>
 </body>
