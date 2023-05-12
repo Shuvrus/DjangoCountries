@@ -3,6 +3,7 @@
 {% block content %}
 <h2>Список стран:</h2>
 <ol>
+    {# FIXME: "char" - очень плохое имя переменной, подберите наиболее информативное   #}
     {% for char in countries %}
         <li><a href="{% url 'country' char.name %}">{{ char.name }}</a></li>
     {% endfor %}
