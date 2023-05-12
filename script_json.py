@@ -3,7 +3,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "DjangoCountries.settings")
 from django.core.wsgi import get_wsgi_application
 
 application = get_wsgi_application()
-from MainApp.models import Languages, Countries
+from MainApp.models import Language, Country
 
 import json
 
@@ -20,15 +20,15 @@ import json
 # lang = sorted(lang)
 #
 # for char in lang:
-#     language = Languages(name=char)
+#     language = Language(name=char)
 #     language.save()
 #
 # for char in data:
-#     country = Countries(name=char['country'])
+#     country = Country(name=char['country'])
 #     country.save()
 #
-# countries = Countries.objects.all()
-# languages = Languages.objects.all()
+# countries = Country.objects.all()
+# languages = Language.objects.all()
 #
 # for country in countries:
 #     for char in data:

@@ -1,8 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from MainApp.models import Countries, Languages
-
-countries = Countries.objects.all()
-languages = Languages.objects.all()
+from MainApp.models import Country, Language
 
 
 def home(request):
@@ -10,20 +7,21 @@ def home(request):
 
 
 def countries_list(request):
+    countries = Country.objects.all()
     context = {'countries': countries}
     return render(request, 'countries-list.html', context)
 
 
-def one_country(request, country):
-    for char in countries:
-        if char.name == country:
-            language = char.languages.all()
-            context = {'country': char,
-                       'languages': language}
-            return render(request, 'one-country.html', context)
+def one_country(request, state):
+    country = Country.objects.get(name=state)
+    languages = country.languages.all()
+    context = {'country': country,
+               'languages': languages}
+    return render(request, 'one-country.html', context)
 
 
 def languages_list(request):
+    languages = Language.objects.all()
     context = {'languages': languages}
     return render(request, 'languages.html', context)
 

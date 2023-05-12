@@ -3,8 +3,8 @@
 {% block content %}
 <h2>Список стран:</h2>
 <ol>
-    {% for char in countries %}
-        <li><a href="{% url 'country' char.name %}">{{ char.name }}</a></li>
+    {% for country in countries %}
+        <li><a href="{% url 'country' country.name %}">{{ country.name }}</a></li>
     {% endfor %}
 </ol>
 {% endblock %}
