@@ -1,6 +1,8 @@
 from django.db import models
 
 
+# FIXME: классы никогда не называются во множественном числе
+#   Languages --> Language
 class Languages(models.Model):
     name = models.CharField(max_length=50)
 
@@ -11,6 +13,7 @@ class Languages(models.Model):
         return f'{self.name}'
 
 
+# FIXME: Countries --> Country
 class Countries(models.Model):
     name = models.CharField(max_length=100)
     languages = models.ManyToManyField(to=Languages)
