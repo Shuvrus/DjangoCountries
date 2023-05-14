@@ -7,5 +7,5 @@ urlpatterns = [
     path('countries-list/', views.countries_list, name='countries-list'),
     path('countries-list/<str:state>/', views.one_country, name='country'),
     path('languages/', views.languages_list, name='languages-list'),
-    path('languages/<str:language_name>/', views.detail, name='language-detail')
+    path('languages/<str:language_name>/', views.language_detail, name='language-detail')
 ]
