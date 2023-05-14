@@ -25,3 +25,12 @@ def languages_list(request):
     context = {'languages': languages}
     return render(request, 'languages.html', context)
 
+
+def detail(request, language_name):
+    countries = Country.objects.filter(languages__name=language_name)
+    context = {
+        'language': language_name,
+        'countries': countries
+    }
+    return render(request, 'language-detail.html', context)
+

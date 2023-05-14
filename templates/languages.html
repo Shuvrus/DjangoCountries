@@ -4,7 +4,7 @@
 <h2>Список языков:</h2>
 <ol>
     {% for lang in languages %}
-        <li>{{ lang.name }}</li>
+        <li><a href="{% url 'language-detail' lang.name %}">{{ lang.name }}</a></li>
     {% endfor %}
 </ol>
 {% endblock %}

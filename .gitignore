@@ -4,4 +4,3 @@
 *venv
 *.pyc
 db.*
-db_copy.*
