@@ -8,18 +8,20 @@
 
 {% block content %}
     <h2>Список стран:</h2>
-<table>
-    <tr>
-        {% for letter in letters %}
-            <td>
-                <a href="{% url 'countries-letter' letter %}">{{ letter }}</a>
-            </td>
-        {% endfor %}
-            <td>
-                <a href="{% url 'countries-list' %}">Все</a>
-            </td>
-    </tr>
-</table>
+
+    <table>
+        <tr>
+            {% for letter in letters %}
+                <td>
+                    <a href="{% url 'countries-letter' letter %}">{{ letter }}</a>
+                </td>
+            {% endfor %}
+                <td>
+                    <a href="{% url 'countries-list' %}">Все</a>
+                </td>
+        </tr>
+    </table>
+
     <ol>
         {% for country in page_countries %}
             <li>
@@ -27,13 +29,15 @@
             </li>
         {% endfor %}
     </ol>
-<table>
-    <tr>
-        {% for number_page in page_countries.paginator.page_range %}
-        <td>
-            <a href="?page={{ number_page }}">{{ number_page }}</a>
-        </td>
-        {% endfor %}
-    </tr>
-</table>
+
+    <table>
+        <tr>
+            {% for number_page in page_countries.paginator.page_range %}
+            <td>
+                <a href="?page={{ number_page }}">{{ number_page }}</a>
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+
 {% endblock %}
