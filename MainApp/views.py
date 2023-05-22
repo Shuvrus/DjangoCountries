@@ -1,5 +1,7 @@
 from django.shortcuts import render, HttpResponse
+from django.core.paginator import Paginator
 from MainApp.models import Country, Language
+import string as st
 
 
 def home(request):
@@ -8,7 +10,31 @@ def home(request):
 
 def countries_list(request):
     countries = Country.objects.all()
-    context = {'countries': countries}
+    letters = st.ascii_uppercase
+    paginator = Paginator(countries, 10)
+    page_number = request.GET.get('page')
+    page_countries = paginator.get_page(page_number)
+    context = {
+        'letters': letters,
+        'page_countries': page_countries
+    }
+    return render(request, 'countries-list.html', context)
+
+
+def countries_letter(request, letter):
+    countries = Country.objects.all()
+    letters = st.ascii_uppercase
+    country_letter = []
+    for country in countries:
+        if country.name[0].upper() == letter:
+            country_letter.append(country)
+    paginator = Paginator(country_letter, 10)
+    page_number = request.GET.get('page')
+    page_countries = paginator.get_page(page_number)
+    context = {
+        'letters': letters,
+        'page_countries': page_countries
+    }
     return render(request, 'countries-list.html', context)
 
 
