@@ -22,13 +22,9 @@ def countries_list(request):
 
 
 def countries_letter(request, letter):
-    countries = Country.objects.all()
+    countries = Country.objects.filter(name__startswith=letter)
     letters = st.ascii_uppercase
-    country_letter = []
-    for country in countries:
-        if country.name[0].upper() == letter:
-            country_letter.append(country)
-    paginator = Paginator(country_letter, 10)
+    paginator = Paginator(countries, 10)
     page_number = request.GET.get('page')
     page_countries = paginator.get_page(page_number)
     context = {
